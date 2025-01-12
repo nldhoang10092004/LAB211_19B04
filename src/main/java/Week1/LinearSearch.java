@@ -3,45 +3,21 @@ package Week1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BinarySearch {
+public class LinearSearch {
 
-
-    public static int binarySearch(int[] array, int key, int nleft, int nright) {
-        if (nleft > nright) return -1;
-        int nmid = (nleft + nright) / 2;
-        if (array[nmid] == key) {
-            return nmid;
-        } else if (array[nmid] < key) {
-            return binarySearch(array, key, nmid + 1, nright);
-        } else {
-            return binarySearch(array, key, nleft, nmid - 1);
-        }
-    }
-
-    public static int binarySearchRecursion(int[] array, int key) {
-        int n = array.length;
-        return binarySearch(array, key, 0, n - 1);
-    }
-
-    public static int binarySearch(int[] array, int key) {
-        int n = array.length;
-        int nleft = 0;
-        int nright = n - 1;
-        while (nleft <= nright) {
-            int nmid = (nleft + nright) / 2;
-            if (array[nmid] == key) {
-                return nmid;
-            } else if (array[nmid] < key) {
-                nleft = nmid + 1;
-            } else {
-                nright = nmid - 1;
+    // Phương thức static thực hiện tìm kiếm tuyến tính
+    public static int linearSearch(int[] array, int searchValue) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == searchValue) {
+                return i; // Trả về chỉ số nếu tìm thấy
             }
         }
-        return -1;
+        return -1; // Trả về -1 nếu không tìm thấy
     }
 
     public static void main(String[] args) {
         BubbleSort bs = new BubbleSort();
+
         Scanner sc = new Scanner(System.in);
         int arrayLength, findElements;
         try {
@@ -67,6 +43,6 @@ public class BinarySearch {
             arr[i] = (int) Math.floor(Math.random() * arrayLength);
         }
         System.out.println("Sorted array: " + Arrays.toString(bs.bubbleSort(arr)));
-        System.out.println("Result index: " + binarySearchRecursion(arr, findElements));
+        System.out.println("Result index: " + linearSearch(arr, findElements));
     }
 }

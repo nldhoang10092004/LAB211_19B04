@@ -9,6 +9,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
-        <exec.mainClass>Week1.bubbleSort</exec.mainClass>
+        <exec.mainClass>Week1.BubbleSort</exec.mainClass>
     </properties>
 </project>
